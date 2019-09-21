@@ -11,7 +11,8 @@ app.use(logger());
 /*router.get("/test", (ctx) => {
   ctx.body = "test";
 });*/
-const workbook = XLSX.readFile("RiceHackathonFile.xlsx");
+console.log(process.cwd());
+const workbook = XLSX.readFile(__dirname + "/" + "RiceHackathonFile.xlsx");
 
 router.get("/get-worker-details", (ctx) => {
   ctx.body = XLSX.utils.sheet_to_json(workbook["Sheets"]["Worker Details"]);
