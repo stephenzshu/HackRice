@@ -28,6 +28,7 @@ router.get("/get-facility-details", (ctx) => {
   ctx.body = XLSX.utils.sheet_to_json(workbook["Sheets"]["Facility Details"]);
 });
 
+/*
 router.get("/post-test", (ctx) => {
   request.post("https://morning-headland-65470.herokuapp.com/get-new-work-order")
     .set('Content-Type', 'application/json')
@@ -35,12 +36,11 @@ router.get("/post-test", (ctx) => {
     .catch(err => {
       console.log(err);
     })
-});
+});*/
 
 router.post("/get-new-work-order", bodyParser, (ctx) => {
   // arg1 will be function to call, arg2 ... will be parameters for function call
-  console.log("yes");
-  let test = ctx.request.body;
+  const test = ctx.request.body.test;
   ctx.body = test;
   /*let json;
   let arg1 = workerName;
