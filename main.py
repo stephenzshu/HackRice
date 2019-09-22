@@ -126,7 +126,7 @@ def getWork(worker):
 def retrieveWork(workerName): #takes in a string from server, and returns a work order for them
 	for worker in workers:
 		if worker.name == workerName:
-			print(worker.current_task)
+			print(worker.current_task, end='')
 			sys.stdout.flush()
 
 def getNewWork(workerName):  #delete old work
