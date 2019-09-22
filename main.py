@@ -68,9 +68,15 @@ def getWorkAtFacility(worker):  #is returned a work. The work is already set to 
 		work = facility4.getWork(worker)
 	else: 
 		work = facility5.getWork(worker)
+	#print("hi")
+	#print(facility1.activeQ.qsize())
+	
 	if work is None:
-		worker.current_facility = 0
-		getWork(worker)
+		#print("HIIIIIIIIIIII GET WORK")
+		worker.current_facility = None
+		#worker.current_task = None
+		work = getWork(worker)
+	#print(work)
 	worker.current_facility = work.facility
 	worker.current_task = work
 	return work
@@ -115,8 +121,8 @@ def getWork(worker):
 			work = facility4.getWork(worker)
 		else: 
 			work = facility5.getWork(worker)
-		#if work is None:
-		#	print(work)
+		if work is None:
+			print(work)
 		worker.current_facility = work.facility
 		worker.current_task = work
 		return work
@@ -130,9 +136,9 @@ def retrieveWork(workerName): #takes in a string from server, and returns a work
 			sys.stdout.flush()
 
 def getNewWork(workerName):  #delete old work
+	#print(facility1.activeQ.qsize())
 	for worker in workers:
 		if worker.name == workerName:
-			worker.current_task = None
 			if worker.current_facility == 'Fac1':
 				facility1.removeActive(worker)
 			elif worker.current_facility == 'Fac2':
@@ -143,6 +149,7 @@ def getNewWork(workerName):  #delete old work
 				facility4.removeActive(worker)
 			else: 
 				facility5.removeActive(worker)
+			worker.current_task = None
 			print(getWorkAtFacility(worker), end='')
 
 def stopWork(workerName, time):
@@ -216,9 +223,11 @@ def main():
 		#print(worker.current_facility)
 		#print(worker.current_task)
 		#print()
-	#retrieveWork('Bob')
-	#getNewWork('Bob')
-	#getNewWork('Bob')
+	retrieveWork('Sally')
+	print()
+	getNewWork('Sally')
+	print()
+	getNewWork('Sally')
 	#print()
 	#stopWork('Bob','1')
 
