@@ -15,17 +15,18 @@ app.use(logger());
 const workbook = XLSX.readFile(__dirname + "/" + "RiceHackathonFile.xlsx");
 
 router.get("/get-worker-details", (ctx) => {
-  ctx.body = XLSX.utils.sheet_to_json(workbook["Sheets"]["Worker Details"]);
+  ctx.response = XLSX.utils.sheet_to_json(workbook["Sheets"]["Worker Details"]);
 });
 
 router.get("/get-equipment-details", (ctx) => {
-  ctx.body = XLSX.utils.sheet_to_json(workbook["Sheets"]["Equipment Details"]);
+  ctx.response = XLSX.utils.sheet_to_json(workbook["Sheets"]["Equipment Details"]);
 });
 
 router.get("/get-facility-details", (ctx) => {
-  ctx.body = XLSX.utils.sheet_to_json(workbook["Sheets"]["Facility Details"]);
+  ctx.response = XLSX.utils.sheet_to_json(workbook["Sheets"]["Facility Details"]);
 });
 
+// Test
 router.get("/meta-test", (ctx) => {
   request.get("https://morning-headland-65470.herokuapp.com/get-worker-details")
     .set('Accept', 'application/json')
