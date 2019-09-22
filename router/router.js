@@ -3,7 +3,7 @@ const Router = require('koa-router');
 const logger = require('koa-logger');
 const bodyParser = require('koa-bodyparser');
 const XLSX = require('xlsx');
-const spawn = require('child_process');
+const { spawn } = require('child_process');
 const request = require('superagent');
 
 app = new Koa();
@@ -38,14 +38,21 @@ router.get("/post-test", (ctx) => {
     })
 });*/
 
-router.post("/get-new-work-order", bodyParser, (ctx) => {
+router.get("/get-new-work-order", (ctx) => {
   // arg1 will be function to call, arg2 ... will be parameters for function call
-  const test = ctx.request.body.test;
-  ctx.body = test;
-  /*let json;
-  let arg1 = workerName;
-  const pythonProcess = spawn.spawn('python', ["./main.py", "retrieveWork", arg1]);
+  let json;
+  let arg1 = "Bob";
+  let done = false;
+  const pythonProcess = spawn('python', ["main.py", "retrieveWork", arg1]);
+
+  while (!done);
+  pythonProcess.on('exit', (code) => {
+    done = true;
+    console.log("EXITED " + code);
+  });
+
   pythonProcess.stdout.on('data', (data) => {
+    console.log(data);
     json = {
       "workID": null,
       "facility": null,
@@ -57,7 +64,8 @@ router.post("/get-new-work-order", bodyParser, (ctx) => {
       "inProgress": null
     }
   });
-  ctx.body = json;*/
+ 
+  ctx.body = json;
 });
 
 router.get("/finish-current-work-order", (ctx) => {
