@@ -9,6 +9,19 @@ class WorkOrder:
 		self.submissionTime = submissionTime
 		self.inProgress = inProgress;
 
+	def __lt__(self, other):
+		return self.workID < other.workID
+	def __gt__(self, other):
+		return self.workID > other.workID
+	def __eq__(self, other):
+		return self.workID == other.workID
+	def __le__(self, other):
+		return self.workID <= other.workID
+	def __ge__(self, other):
+		return self.workID >= other.workID
+	def __ne__(self, other):
+		return self.workID != other.workID
+
 	def getWorkID(self):
 		return self.workID
 
@@ -32,3 +45,6 @@ class WorkOrder:
 
 	def getStatus(self):
 		return self.inProgress
+
+	def __str__(self):
+		return self.workID + " " + self.facility + " " + self.equipment + " " + self.equipmentID + " " + self.priority + " " + self.time + " " + self.submissionTime + " " + self.inProgress

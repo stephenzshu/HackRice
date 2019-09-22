@@ -25,16 +25,48 @@ class Facility:
     def getWork(self, worker):
         temp = PriorityQueue()
         hasWork = False
-        work = 0
-        while not hasWork:
-            work = readyQ.get()
-            if not work.equipment in worker.equipment_cert  #put in temp queue to cycle and look for good work
+        work = None
+        #print(self.name)
+        while not self.readyQ.empty() and not hasWork:
+            #print("loop")
+            work = self.readyQ.get()
+            if not work[1].equipment in worker.equipment_cert.split(", "):  #put in temp queue to cycle and look for good work
                 temp.put(work)
             else: #work has been found
                 while not temp.empty(): #put all the temporarily removed work back in the readyQ
-                    readyQ.put(temp.get())
-                activeQ.put(work)
+                    self.readyQ.put(temp.get())
+                self.activeQ.put(work)
                 hasWork = True
+            if self.readyQ.empty():
+                while not temp.empty(): #put all the temporarily removed work back in the readyQ
+                    self.readyQ.put(temp.get())
+                self.readyQ.put(work)
+                hasWork = True
+        #print(self.readyQ.empty())
+        #print(work)
+        return work
+
+    def peekWork(self, worker):
+        temp = PriorityQueue()
+        hasWork = False
+        work = None
+        #print(self.readyQ.qsize())
+        while not self.readyQ.empty() and not hasWork:
+            work = self.readyQ.get()
+            if not work[1].equipment in worker.equipment_cert.split(", "):  #put in temp queue to cycle and look for good work
+                temp.put(work)
+            else: #work has been found
+                while not temp.empty(): #put all the temporarily removed work back in the readyQ
+                    self.readyQ.put(temp.get())
+                self.readyQ.put(work)
+                hasWork = True
+            if self.readyQ.empty():
+                while not temp.empty(): #put all the temporarily removed work back in the readyQ
+                    self.readyQ.put(temp.get())
+                self.readyQ.put(work)
+                hasWork = True
+        #print(self.readyQ.qsize())
+
         return work
     #def get_equipment_list(self):
     #    return self.equipment_list
