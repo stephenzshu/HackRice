@@ -27,9 +27,10 @@ def updateFacility():
 			facility3 = Facility(data[0],data[1],data[2],PriorityQueue(),PriorityQueue())
 		elif data[0] == 'Fac4':
 			facility4 = Facility(data[0],data[1],data[2],PriorityQueue(),PriorityQueue())
-		else:
+		elif data[0] == 'Fac5':
 			facility5 = Facility(data[0],data[1],data[2],PriorityQueue(),PriorityQueue())
-		
+		else:
+			print("should not come here")
 
 def updateWorkers():
 	df = pd.read_excel(r'router/RiceHackathonFile.xlsx', sheet_name='Worker Details')
@@ -53,8 +54,10 @@ def updateWorkQueues():
 			facility3.readyQ.put((work.priority,work))
 		elif data[1] == 'Fac4':
 			facility4.readyQ.put((work.priority,work))
-		else:
+		elif data[1] == 'Fac5':
 			facility5.readyQ.put((work.priority,work))
+		else:
+			print("should not come here")
 
 def getWorkAtFacility(worker):  #is returned a work. The work is already set to the activeQ in the facility class.
 	work = None
@@ -66,8 +69,10 @@ def getWorkAtFacility(worker):  #is returned a work. The work is already set to 
 		work = facility3.getWork(worker)
 	elif worker.current_facility == 'Fac4':
 		work = facility4.getWork(worker)
-	else: 
+	elif worker.current_facility == 'Fac5': 
 		work = facility5.getWork(worker)
+	else:
+		print("should not come here")
 	#print("hi")
 	#print(facility1.activeQ.qsize())
 	
@@ -119,8 +124,10 @@ def getWork(worker):
 			work = facility3.getWork(worker)
 		elif work.facility == 'Fac4':
 			work = facility4.getWork(worker)
-		else: 
+		elif work.facility == 'Fac5': 
 			work = facility5.getWork(worker)
+		else:
+			print("should not be here")
 		if work is None:
 			print(work)
 		worker.current_facility = work.facility
@@ -147,8 +154,10 @@ def getNewWork(workerName):  #delete old work
 				facility3.removeActive(worker)
 			elif worker.current_facility == 'Fac4':
 				facility4.removeActive(worker)
-			else: 
+			elif worker.current_facility == 'Fac5': 
 				facility5.removeActive(worker)
+			else:
+				print("should not be here")
 			worker.current_task = None
 			print(getWorkAtFacility(worker), end='')
 
@@ -164,8 +173,10 @@ def stopWork(workerName, time):
 				work = facility3.removeActive(worker)
 			elif worker.current_facility == 'Fac4':
 				work = facility4.removeActive(worker)
-			else: 
+			elif worker.current_facility == 'Fac5': 
 				work = facility5.removeActive(worker)
+			else:
+				print("should not be here")
 			work.inProgress += int(time)
 			if worker.current_facility == 'Fac1':
 				facility1.readyQ.put((work.priority,work))
@@ -175,8 +186,10 @@ def stopWork(workerName, time):
 				facility3.readyQ.put((work.priority,work))
 			elif worker.current_facility == 'Fac4':
 				facility4.readyQ.put((work.priority,work))
-			else: 
+			elif worker.current_facility == 'Fac5': 
 				facility5.readyQ.put((work.priority,work))
+			else:
+				print("should not be here")
 	
 	print("Success", end='')
 
@@ -224,12 +237,13 @@ def main():
 		#print(worker.current_facility)
 		#print(worker.current_task)
 		#print()
-	#retrieveWork('Sally')
+	#retrieveWork('Celeste')
 	#print()
-	#getNewWork('Sally')
+	#getNewWork('Celeste')
 	#print()
-	#getNewWork('Sally')
+	#getNewWork('Celeste')
 	#print()
+	#getNewWork('Celeste')
 	#stopWork('Sally','1')
 
 	#print("DONE")
