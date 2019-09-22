@@ -21,6 +21,7 @@
     "koa": "^2.8.1",
     "koa-logger": "^3.2.1",
     "koa-router": "^7.4.0",
+    "superagent": "^5.1.0",
     "xlsx": "^0.15.1"
   }
 }

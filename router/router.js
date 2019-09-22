@@ -3,6 +3,7 @@ const Router = require('koa-router');
 const logger = require('koa-logger');
 const XLSX = require('xlsx');
 const spawn = require('child_process');
+const request = require('superagent');
 
 app = new Koa();
 router = new Router();
@@ -24,6 +25,14 @@ router.get("/get-equipment-details", (ctx) => {
 
 router.get("/get-facility-details", (ctx) => {
   ctx.body = XLSX.utils.sheet_to_json(workbook["Sheets"]["Facility Details"]);
+});
+
+router.get("/meta-test", (ctx) => {
+  request.get("https://morning-headland-65470.herokuapp.com/get-worker-details")
+    .set('Accept', 'application/json')
+    .then(res => {
+      console.log(res);
+    });
 });
 
 router.get("/get-current-work-order", (ctx) => {
