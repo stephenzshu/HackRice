@@ -29,8 +29,6 @@ def updateFacility():
 			facility4 = Facility(data[0],data[1],data[2],PriorityQueue(),PriorityQueue())
 		elif data[0] == 'Fac5':
 			facility5 = Facility(data[0],data[1],data[2],PriorityQueue(),PriorityQueue())
-		else:
-			print("should not come here")
 
 def updateWorkers():
 	df = pd.read_excel(r'router/RiceHackathonFile.xlsx', sheet_name='Worker Details')
@@ -56,8 +54,6 @@ def updateWorkQueues():
 			facility4.readyQ.put((work.priority,work))
 		elif data[1] == 'Fac5':
 			facility5.readyQ.put((work.priority,work))
-		else:
-			print("should not come here")
 
 def getWorkAtFacility(worker):  #is returned a work. The work is already set to the activeQ in the facility class.
 	work = None
@@ -71,8 +67,6 @@ def getWorkAtFacility(worker):  #is returned a work. The work is already set to 
 		work = facility4.getWork(worker)
 	elif worker.current_facility == 'Fac5': 
 		work = facility5.getWork(worker)
-	else:
-		print("should not come here")
 	#print("hi")
 	#print(facility1.activeQ.qsize())
 	
@@ -126,8 +120,6 @@ def getWork(worker):
 			work = facility4.getWork(worker)
 		elif work.facility == 'Fac5': 
 			work = facility5.getWork(worker)
-		else:
-			print("should not be here")
 		if work is None:
 			print(work)
 		worker.current_facility = work.facility
