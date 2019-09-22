@@ -201,6 +201,11 @@ def stopWork(workerName, time):
 	
 	print("Success", end='')
 
+def whoIsWhere():
+	for worker in workers:
+		print(worker.name, end=': ')
+		print(worker.current_facility)
+
 def checkQueues():
 	#while not facility1.readyQ.empty():
 	#	print(facility1.readyQ.get()[1].workID)
@@ -252,6 +257,7 @@ def main():
 	getNewWork('Bob')
 	print()
 	getNewWork('Bob')
+	#whoIsWhere()
 	#stopWork('Sally','1')
 
 	#print("DONE")
@@ -261,6 +267,8 @@ def main():
 		getNewWork(sys.argv[2])
 	if sys.argv[1] == 'stopWork':
 		stopWork(sys.argv[2],sys.argv[3])
+	if sys.argv[1] == 'whoIsWhere':
+		whoIsWhere()
 if __name__== "__main__":
 	main()
 
