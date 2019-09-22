@@ -35,13 +35,14 @@ router.get("/meta-test", (ctx) => {
     });
 });
 
-router.get("/get-new-work-order", (ctx) => {
+router.post("/get-new-work-order", workerName, (ctx) => {
   // arg1 will be function to call, arg2 ... will be parameters for function call
   let json;
-  const pythonProcess = spawn.spawn('python', ["./main.py", arg1, arg2]);
+  let arg1 = workerName;
+  const pythonProcess = spawn.spawn('python', ["./main.py", "retrieveWork", arg1]);
   pythonProcess.stdout.on('data', (data) => {
     json = {
-      "wordID": null,
+      "workID": null,
       "facility": null,
       "equipment": null,
       "equipmentID": null,
