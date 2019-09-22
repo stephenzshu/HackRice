@@ -144,13 +144,23 @@ def retrieveWork(workerName): #takes in a string from server, and returns a work
 
 def getNewWork(workerName):  #delete old work
 	#print(facility1.activeQ.qsize())
+	writer = pd.ExcelWriter('router/RiceHackathonFile.xlsx', engine='xlsxwriter')
+	df1 = pd.read_excel(r'router/RiceHackathonFile.xlsx', sheet_name='Summary')
+	df1.to_excel(writer, sheet_name='Summary')
+	df2 = pd.read_excel(r'router/RiceHackathonFile.xlsx', sheet_name='Worker Details')
+	df2.to_excel(writer, sheet_name='Worker Details')
+	df3 = pd.read_excel(r'router/RiceHackathonFile.xlsx', sheet_name='Equipment Details')
+	df3.to_excel(writer, sheet_name='Equipment Details')
+	df4 = pd.read_excel(r'router/RiceHackathonFile.xlsx', sheet_name='Facility Details')
+	df4.to_excel(writer, sheet_name='Facility Details')
 	for worker in workers:
 		if worker.name == workerName:
 			work = worker.current_task   #REMOVE THE OLD TASK FROM THE DATABASE
-			df = pd.read_excel(r'router/RiceHackathonFile.xlsx', sheet_name='Work Order Examples')
-			data = df.loc[:,:]
+			df5 = pd.read_excel(r'router/RiceHackathonFile.xlsx', sheet_name='Work Order Examples')
+			data = df5.loc[:,:]
 			data = data.drop(int(work.workID)-1001)
-			data.to_excel('router/RiceHackathonFile.xlsx', sheet_name='Work Order Examples')
+			data.to_excel(writer, sheet_name='Work Order Examples')
+			writer.save()
 			if worker.current_facility == 'Fac1':
 				facility1.removeActive(worker)
 			elif worker.current_facility == 'Fac2':
@@ -166,7 +176,7 @@ def getNewWork(workerName):  #delete old work
 			worker.current_task = None
 			work = getWorkAtFacility(worker)
 			print(work, end='')
-			
+	
 
 
 def stopWork(workerName, time):
