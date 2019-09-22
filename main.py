@@ -171,8 +171,6 @@ def getNewWork(workerName):  #delete old work
 				facility4.removeActive(worker)
 			elif worker.current_facility == 'Fac5': 
 				facility5.removeActive(worker)
-			else:
-				print("should not be here")
 			worker.current_task = None
 			work = getWorkAtFacility(worker)
 			print(work, end='')
@@ -260,11 +258,11 @@ def main():
 		#print(worker.current_facility)
 		#print(worker.current_task)
 		#print()
-	#retrieveWork('Bob')
+	retrieveWork('Bob')
 	#print()
-	#getNewWork('Bob')
+	getNewWork('Bob')
 	#print()
-	#getNewWork('Bob')
+	getNewWork('Bob')
 	#print()
 	#getNewWork('Bob')
 	#whoIsWhere()
