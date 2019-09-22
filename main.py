@@ -57,7 +57,7 @@ def updateWorkQueues():
 			facility5.readyQ.put((work.priority,work))
 
 def getWorkAtFacility(worker):  #is returned a work. The work is already set to the activeQ in the facility class.
-	#print ("GET WORK AT FACILITY ****************************************")
+	print ("GET WORK AT FACILITY ****************************************")
 	work = 0
 	if worker.current_facility == 'Fac1':
 		work = facility1.getWork(worker)
@@ -168,13 +168,13 @@ def checkQueues():
 	#	print(facility2.readyQ.get()[1].workID)
 	#while not facility3.readyQ.empty():
 	#	print(facility3.readyQ.get()[1].workID)
-	#print("CHECK QUEUE")
+	print("CHECK QUEUE")
 	temp = PriorityQueue()
 	count = 0
 	while not facility4.readyQ.empty():
 		temp.put(facility4.readyQ.get())
 		count+=1
-		#print(count)
+		print(count)
 	while not temp.empty():
 		facility4.readyQ.put(temp.get())	
 	#while not facility5.readyQ.empty():
@@ -191,20 +191,18 @@ def main():
 	for worker in workers:
 		if worker.current_facility == 0:
 			worker.current_task = getWork(worker)
-			#print(worker.name)
-			#print(worker.current_facility)
-			#print(worker.current_task)
-			#print()
+			print(worker.name)
+			print(worker.current_facility)
+			print(worker.current_task)
+			print()
 
 	#print("DONE")
-	#print(sys.argv[1], sys.argv[2])
 	if sys.argv[1] == 'retrieveWork':
 		retrieveWork(sys.argv[2])
 	if sys.argv[1] == 'getNewWork':
 		retrieveWork(sys.argv[2])
 	if sys.argv[1] == 'stopWork':
 		retrieveWork(sys.argv[2],sys.argv[3])
-
 if __name__== "__main__":
 	main()
 
