@@ -58,7 +58,7 @@ def updateWorkQueues():
 
 def getWorkAtFacility(worker):  #is returned a work. The work is already set to the activeQ in the facility class.
 	print ("GET WORK AT FACILITY ****************************************")
-	work = 0
+	work = None
 	if worker.current_facility == 'Fac1':
 		work = facility1.getWork(worker)
 	elif worker.current_facility == 'Fac2':
@@ -69,7 +69,7 @@ def getWorkAtFacility(worker):  #is returned a work. The work is already set to 
 		work = facility4.getWork(worker)
 	else: 
 		work = facility5.getWork(worker)
-	if work == 0:
+	if work is None:
 		worker.current_facility = 0
 		getWork(worker)
 	worker.current_facility = work.facility
@@ -117,9 +117,9 @@ def getWork(worker):
 			work = facility5.getWork(worker)
 		#if work is None:
 		#	print(work)
-		worker.current_facility = work[1].facility
-		worker.current_task = work[1]
-		return work[1]
+		worker.current_facility = work.facility
+		worker.current_task = work
+		return work
 	else:
 		getWorkAtFacility(worker)
 
@@ -143,12 +143,22 @@ def getNewWork(workerName):  #delete old work
 				facility4.removeActive(worker)
 			else: 
 				facility5.removeActive(worker)
-			getWorkAtFacility(worker)
+			print(getWorkAtFacility(worker))
 
 def stopWork(workerName, time):
 	for worker in workers:
 		if worker.name == workerName:
-			work = removeActive(worker)
+			work = None
+			if worker.current_facility == 'Fac1':
+				work = facility1.removeActive(worker)
+			elif worker.current_facility == 'Fac2':
+				work = facility2.removeActive(worker)
+			elif worker.current_facility == 'Fac3':
+				work = facility3.removeActive(worker)
+			elif worker.current_facility == 'Fac4':
+				work = facility4.removeActive(worker)
+			else: 
+				work = facility5.removeActive(worker)
 			work.inProgress += time
 			if worker.current_facility == 'Fac1':
 				facility1.readyQ.put((work.priority,work))
@@ -191,18 +201,22 @@ def main():
 	for worker in workers:
 		if worker.current_facility == 0:
 			worker.current_task = getWork(worker)
-			print(worker.name)
-			print(worker.current_facility)
-			print(worker.current_task)
-			print()
+			#print(worker.name)
+			#print(worker.current_facility)
+			#print(worker.current_task)
+			#print()
+	retrieveWork('Bob')
+	#getNewWork('Bob')
+	#getNewWork('Bob')
+	#stopWork('Bob','1')
 
 	#print("DONE")
 	if sys.argv[1] == 'retrieveWork':
 		retrieveWork(sys.argv[2])
 	if sys.argv[1] == 'getNewWork':
-		retrieveWork(sys.argv[2])
+		getNewWork(sys.argv[2])
 	if sys.argv[1] == 'stopWork':
-		retrieveWork(sys.argv[2],sys.argv[3])
+		stopWork(sys.argv[2],sys.argv[3])
 if __name__== "__main__":
 	main()
 

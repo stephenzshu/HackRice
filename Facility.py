@@ -28,7 +28,7 @@ class Facility:
         temp = PriorityQueue()
         while self.activeQ.qsize() > 0:
             work = self.activeQ.get()
-            if worker.current_task != work:   #might need 'is' operator or update the comparator
+            if worker.current_task is work:   #might need 'is' operator or update the comparator
                 temp.put(work)
             else:
                 removed = work
