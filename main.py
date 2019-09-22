@@ -146,6 +146,11 @@ def getNewWork(workerName):  #delete old work
 	#print(facility1.activeQ.qsize())
 	for worker in workers:
 		if worker.name == workerName:
+			work = worker.current_task   #REMOVE THE OLD TASK FROM THE DATABASE
+			df = pd.read_excel(r'router/RiceHackathonFile.xlsx', sheet_name='Work Order Examples')
+			data = df.loc[:,:]
+			data = data.drop(int(work.workID)-1001)
+			data.to_excel('router/RiceHackathonFile.xlsx', sheet_name='Work Order Examples')
 			if worker.current_facility == 'Fac1':
 				facility1.removeActive(worker)
 			elif worker.current_facility == 'Fac2':
@@ -159,7 +164,10 @@ def getNewWork(workerName):  #delete old work
 			else:
 				print("should not be here")
 			worker.current_task = None
-			print(getWorkAtFacility(worker), end='')
+			work = getWorkAtFacility(worker)
+			print(work, end='')
+			
+
 
 def stopWork(workerName, time):
 	for worker in workers:
@@ -237,13 +245,13 @@ def main():
 		#print(worker.current_facility)
 		#print(worker.current_task)
 		#print()
-	#retrieveWork('Celeste')
-	#print()
-	#getNewWork('Celeste')
-	#print()
-	#getNewWork('Celeste')
-	#print()
-	#getNewWork('Celeste')
+	retrieveWork('Bob')
+	print()
+	getNewWork('Bob')
+	print()
+	getNewWork('Bob')
+	print()
+	getNewWork('Bob')
 	#stopWork('Sally','1')
 
 	#print("DONE")
