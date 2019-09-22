@@ -58,7 +58,7 @@ def updateWorkQueues():
 
 def getWorkAtFacility(worker):  #is returned a work. The work is already set to the activeQ in the facility class.
 	print ("GET WORK AT FACILITY ****************************************")
-	work = None
+	work = 0
 	if worker.current_facility == 'Fac1':
 		work = facility1.getWork(worker)
 	elif worker.current_facility == 'Fac2':
@@ -69,13 +69,11 @@ def getWorkAtFacility(worker):  #is returned a work. The work is already set to 
 		work = facility4.getWork(worker)
 	else: 
 		work = facility5.getWork(worker)
-	if work is None:
+	if work == 0:
 		worker.current_facility = 0
 		getWork(worker)
 	worker.current_facility = work.facility
 	worker.current_task = work
-	print(work)
-
 
 def getWork(worker):
 	if worker.current_facility == 0:
@@ -119,9 +117,9 @@ def getWork(worker):
 			work = facility5.getWork(worker)
 		#if work is None:
 		#	print(work)
-		worker.current_facility = work.facility
-		worker.current_task = work
-		return work
+		worker.current_facility = work[1].facility
+		worker.current_task = work[1]
+		return work[1]
 	else:
 		getWorkAtFacility(worker)
 
@@ -131,7 +129,7 @@ def retrieveWork(workerName): #takes in a string from server, and returns a work
 			print(worker.current_task)
 			sys.stdout.flush()
 
-def getNewWork(workerName):  #delete old work, but uses the same
+def getNewWork(workerName):  #delete old work
 	for worker in workers:
 		if worker.name == workerName:
 			worker.current_task = None
@@ -146,22 +144,11 @@ def getNewWork(workerName):  #delete old work, but uses the same
 			else: 
 				facility5.removeActive(worker)
 			getWorkAtFacility(worker)
-			sys.stdout.flush()
 
 def stopWork(workerName, time):
 	for worker in workers:
 		if worker.name == workerName:
-			work = None
-			if worker.current_facility == 'Fac1':
-				work = facility1.removeActive(worker)
-			elif worker.current_facility == 'Fac2':
-				work = facility2.removeActive(worker)
-			elif worker.current_facility == 'Fac3':
-				work = facility3.removeActive(worker)
-			elif worker.current_facility == 'Fac4':
-				work = facility4.removeActive(worker)
-			else: 
-				work = facility5.removeActive(worker)
+			work = removeActive(worker)
 			work.inProgress += time
 			if worker.current_facility == 'Fac1':
 				facility1.readyQ.put((work.priority,work))
@@ -173,7 +160,6 @@ def stopWork(workerName, time):
 				facility4.readyQ.put((work.priority,work))
 			else: 
 				facility5.readyQ.put((work.priority,work))
-	print("Success")
 
 def checkQueues():
 	#while not facility1.readyQ.empty():
@@ -205,22 +191,18 @@ def main():
 	for worker in workers:
 		if worker.current_facility == 0:
 			worker.current_task = getWork(worker)
-			#print(worker.name)
-			#print(worker.current_facility)
-			#print(worker.current_task)
-			#print()
+			print(worker.name)
+			print(worker.current_facility)
+			print(worker.current_task)
+			print()
 
-	retrieveWork('Bob')
-	getNewWork('Bob')
-	getNewWork('Bob')
-	stopWork('Bob','1')
 	#print("DONE")
 	if sys.argv[1] == 'retrieveWork':
 		retrieveWork(sys.argv[2])
 	if sys.argv[1] == 'getNewWork':
-		getNewWork(sys.argv[2])
+		retrieveWork(sys.argv[2])
 	if sys.argv[1] == 'stopWork':
-		stopWork(sys.argv[2],sys.argv[3])
+		retrieveWork(sys.argv[2],sys.argv[3])
 if __name__== "__main__":
 	main()
 
