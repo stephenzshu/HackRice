@@ -44,7 +44,7 @@ def updateWorkQueues():
 	
 	for index, data in df.iterrows():
 		#print(index, row)
-		work = WorkOrder(data[0],data[1],data[2],data[3],data[4],data[5],data[6],False)
+		work = WorkOrder(data[0],data[1],data[2],data[3],data[4],data[5],data[6],0)
 		if data[1] == 'Fac1':
 			facility1.readyQ.put((work.priority,work))
 		elif data[1] == 'Fac2':
@@ -55,12 +55,6 @@ def updateWorkQueues():
 			facility4.readyQ.put((work.priority,work))
 		else:
 			facility5.readyQ.put((work.priority,work))
-
-def retrieveWork(workerName): #takes in a string from server, and returns a work order for them
-	for worker in workers:
-		if worker.name == workerName:
-			print(worker.current_task)
-			sys.stdout.flush()
 
 def getWorkAtFacility(worker):  #is returned a work. The work is already set to the activeQ in the facility class.
 	print ("GET WORK AT FACILITY ****************************************")
@@ -79,20 +73,20 @@ def getWorkAtFacility(worker):  #is returned a work. The work is already set to 
 		worker.current_facility = 0
 		getWork(worker)
 	worker.current_facility = work.facility
-	worker.current_task = work.workID
+	worker.current_task = work
 
 def getWork(worker):
 	if worker.current_facility == 0:
 		work1 = facility1.peekWork(worker)
-		print("Peeked Work 1")
+		#print("Peeked Work 1")
 		work2 = facility2.peekWork(worker)
-		print("Peeked Work 2")
+		#print("Peeked Work 2")
 		work3 = facility3.peekWork(worker)
-		print("Peeked Work 3")
+		#print("Peeked Work 3")
 		work4 = facility4.peekWork(worker)
-		print("Peeked Work 4")
+		#print("Peeked Work 4")
 		work5 = facility5.peekWork(worker)
-		print("Peeked Work 5")
+		#print("Peeked Work 5")
 		pq = PriorityQueue()
 		if work1 is not None:
 			pq.put(work1)
@@ -105,12 +99,12 @@ def getWork(worker):
 		if work5 is not None:
 			pq.put(work5)
 		work = pq.get()
-		if work is not None:
-			print(work)
-			print("work is not none")
-			print(work[1].facility)
-		if work is None:
-			print("FATAL ERROR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
+		#if work is not None:
+		#	print(work)
+		#	print("work is not none")
+		#	print(work[1].facility)
+		#if work is None:
+		#	print("FATAL ERROR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
 		if work[1].facility == 'Fac1':
 			work = facility1.getWork(worker)
 		elif work[1].facility == 'Fac2':
@@ -121,12 +115,51 @@ def getWork(worker):
 			work = facility4.getWork(worker)
 		else: 
 			work = facility5.getWork(worker)
-		if work is None:
-			print(work)
+		#if work is None:
+		#	print(work)
 		worker.current_facility = work[1].facility
-		worker.current_task = work[1].workID
+		worker.current_task = work[1]
+		return work[1]
 	else:
 		getWorkAtFacility(worker)
+
+def retrieveWork(workerName): #takes in a string from server, and returns a work order for them
+	for worker in workers:
+		if worker.name == workerName:
+			print(worker.current_task)
+			sys.stdout.flush()
+
+def getNewWork(workerName):  #delete old work
+	for worker in workers:
+		if worker.name == workerName:
+			worker.current_task = None
+			if worker.current_facility == 'Fac1':
+				facility1.removeActive(worker)
+			elif worker.current_facility == 'Fac2':
+				facility2.removeActive(worker)
+			elif worker.current_facility == 'Fac3':
+				facility3.removeActive(worker)
+			elif worker.current_facility == 'Fac4':
+				facility4.removeActive(worker)
+			else: 
+				facility5.removeActive(worker)
+			getWorkAtFacility(worker)
+
+def stopWork(workerName, time):
+	for worker in workers:
+		if worker.name == workerName:
+			work = removeActive(worker)
+			work.inProgress += time
+			if worker.current_facility == 'Fac1':
+				facility1.readyQ.put((work.priority,work))
+			elif worker.current_facility == 'Fac2':
+				facility2.readyQ.put((work.priority,work))
+			elif worker.current_facility == 'Fac3':
+				facility3.readyQ.put((work.priority,work))
+			elif worker.current_facility == 'Fac4':
+				facility4.readyQ.put((work.priority,work))
+			else: 
+				facility5.readyQ.put((work.priority,work))
 
 def checkQueues():
 	#while not facility1.readyQ.empty():
@@ -149,20 +182,27 @@ def checkQueues():
 
 def main():
 	updateFacility()
-	print('Updated Facilities \n')
+	#print('Updated Facilities \n')
 	updateWorkers()
-	print('Updated Workers \n')
+	#print('Updated Workers \n')
 	updateWorkQueues()
-	print('Updated Work Queues \n')
+	#print('Updated Work Queues \n')
 	#checkQueues()
 	for worker in workers:
 		if worker.current_facility == 0:
 			worker.current_task = getWork(worker)
 			print(worker.name)
-	print("DONE")
+			print(worker.current_facility)
+			print(worker.current_task)
+			print()
+
+	#print("DONE")
 	if sys.argv[1] == 'retrieveWork':
 		retrieveWork(sys.argv[2])
-
+	if sys.argv[1] == 'getNewWork':
+		retrieveWork(sys.argv[2])
+	if sys.argv[1] == 'stopWork':
+		retrieveWork(sys.argv[2],sys.argv[3])
 if __name__== "__main__":
 	main()
 
