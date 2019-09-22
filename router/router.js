@@ -28,20 +28,38 @@ router.get("/get-facility-details", (ctx) => {
   ctx.body = XLSX.utils.sheet_to_json(workbook["Sheets"]["Facility Details"]);
 });
 
-/*
-router.get("/post-test", (ctx) => {
-  request.post("https://morning-headland-65470.herokuapp.com/get-new-work-order")
-    .set('Content-Type', 'application/json')
-    .send({"test": "bet"})
-    .catch(err => {
-      console.log(err);
-    })
-});*/
+router.post("/retrieve-work", async (ctx) => {
+  // Call python method to retieve initial work orders
+  let arg1 = ctx.request.body['name'];
+  const pythonProcess = spawn('python3', ["main.py", "retrieveWork", arg1]);
+
+  pythonProcess.on('exit', (code) => {
+    console.log("EXITED " + code);
+  });
+
+  const json = await new Promise((resolve, reject) => {
+    pythonProcess.stdout.on('data', (data) => {
+      let temp = data.toString('utf8').split(" ");
+      retrieved_work_json = {
+        "workID": temp[0],
+        "facility": temp[1],
+        "equipment": temp[2],
+        "equipmentID": temp[3],
+        "priority": temp[4],
+        "time": temp[5],
+        "submissionTime": temp[6],
+        "inProgress": temp[7].s
+      }
+      resolve(retrieved_work_json);
+    });
+  });
+
+  ctx.body = json;
+});
 
 router.post("/get-new-work-order", async (ctx) => {
-  // arg1 will be function to call, arg2 ... will be parameters for function call
+  // Calls python method to retrieve a new work order
   let arg1 = ctx.request.body['name'];
-  console.log(arg1);
   const pythonProcess = spawn('python3', ["main.py", "getNewWork", arg1]);
 
   pythonProcess.on('exit', (code) => {
@@ -68,13 +86,25 @@ router.post("/get-new-work-order", async (ctx) => {
   ctx.body = json;
 });
 
-router.get("/finish-current-work-order", (ctx) => {
+router.post("/stop-work", async (ctx) => {
   // Call python method that finishes work order for worker
-  const pythonProcess = spawn.spawn('python', ["./main.py", arg1, arg2]);
-  pythonProcess.stdout.on('data', (data) => {
-    ctx.status = 200;
-    ctx.body = "Current work order successfully removed";
+  let arg1 = ctx.request.body['name'];
+  let arg2 = ctx.request.body['time'];
+  const pythonProcess = spawn.spawn('python', ["./main.py", "stopWork", arg1, arg2]);
+
+  pythonProcess.on('exit', (code) => {
+    console.log("EXITED " + code);
   });
+  
+  const result = await new Promise((resolve, reject) => {
+    pythonProcess.stdout.on('data', (data) => {
+      let temp = data.toString('utf8');
+      if (temp == "Success") resolve()
+      else reject()
+    });
+  });
+
+  ctx.body = "Work task ended.";
 });
 
 // Test routes
