@@ -31,6 +31,7 @@ router.get("/get-facility-details", (ctx) => {
 router.post("/retrieve-work", async (ctx) => {
   // Call python method to retieve initial work orders
   let arg1 = ctx.request.body['name'];
+  console.log(arg1);
   const pythonProcess = spawn('python3', ["main.py", "retrieveWork", arg1]);
 
   pythonProcess.on('exit', (code) => {
@@ -39,6 +40,7 @@ router.post("/retrieve-work", async (ctx) => {
 
   const json = await new Promise((resolve, reject) => {
     pythonProcess.stdout.on('data', (data) => {
+      console.log('test');
       let temp = data.toString('utf8').split(" ");
       retrieved_work_json = {
         "workID": temp[0],
@@ -53,7 +55,7 @@ router.post("/retrieve-work", async (ctx) => {
       resolve(retrieved_work_json);
     });
   });
-
+  console.log("bing");
   ctx.body = json;
 });
 
