@@ -55,7 +55,6 @@ router.post("/retrieve-work", async (ctx) => {
       resolve(retrieved_work_json);
     });
   });
-  console.log("bing");
   ctx.body = json;
 });
 
