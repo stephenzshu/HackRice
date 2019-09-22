@@ -15,15 +15,15 @@ app.use(logger());
 const workbook = XLSX.readFile(__dirname + "/" + "RiceHackathonFile.xlsx");
 
 router.get("/get-worker-details", (ctx) => {
-  ctx.response = XLSX.utils.sheet_to_json(workbook["Sheets"]["Worker Details"]);
+  ctx.body = XLSX.utils.sheet_to_json(workbook["Sheets"]["Worker Details"]);
 });
 
 router.get("/get-equipment-details", (ctx) => {
-  ctx.response = XLSX.utils.sheet_to_json(workbook["Sheets"]["Equipment Details"]);
+  ctx.body = XLSX.utils.sheet_to_json(workbook["Sheets"]["Equipment Details"]);
 });
 
 router.get("/get-facility-details", (ctx) => {
-  ctx.response = XLSX.utils.sheet_to_json(workbook["Sheets"]["Facility Details"]);
+  ctx.body = XLSX.utils.sheet_to_json(workbook["Sheets"]["Facility Details"]);
 });
 
 // Test
