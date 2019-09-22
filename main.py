@@ -177,6 +177,7 @@ def stopWork(workerName, time):
 				facility4.readyQ.put((work.priority,work))
 			else: 
 				facility5.readyQ.put((work.priority,work))
+	
 	print("Success", end='')
 
 def checkQueues():
@@ -223,13 +224,13 @@ def main():
 		#print(worker.current_facility)
 		#print(worker.current_task)
 		#print()
-	retrieveWork('Sally')
-	print()
-	getNewWork('Sally')
-	print()
-	getNewWork('Sally')
+	#retrieveWork('Sally')
 	#print()
-	#stopWork('Bob','1')
+	#getNewWork('Sally')
+	#print()
+	#getNewWork('Sally')
+	#print()
+	#stopWork('Sally','1')
 
 	#print("DONE")
 	if sys.argv[1] == 'retrieveWork':
