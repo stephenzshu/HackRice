@@ -34,7 +34,7 @@ def updateFacility():
 def updateWorkers():
 	df = pd.read_excel(r'router/RiceHackathonFile.xlsx', sheet_name='Worker Details')
 	for index, data in df.iterrows():
-		worker = Worker(data[0],data[1],data[2],0,0)
+		worker = Worker(data[0],data[1],data[2],None,None)
 		workers.append(worker)
 	
 
@@ -57,7 +57,6 @@ def updateWorkQueues():
 			facility5.readyQ.put((work.priority,work))
 
 def getWorkAtFacility(worker):  #is returned a work. The work is already set to the activeQ in the facility class.
-	print ("GET WORK AT FACILITY ****************************************")
 	work = None
 	if worker.current_facility == 'Fac1':
 		work = facility1.getWork(worker)
@@ -74,9 +73,10 @@ def getWorkAtFacility(worker):  #is returned a work. The work is already set to 
 		getWork(worker)
 	worker.current_facility = work.facility
 	worker.current_task = work
+	return work
 
 def getWork(worker):
-	if worker.current_facility == 0:
+	if worker.current_facility is None:
 		work1 = facility1.peekWork(worker)
 		#print("Peeked Work 1")
 		work2 = facility2.peekWork(worker)
@@ -199,13 +199,23 @@ def main():
 	#print('Updated Work Queues \n')
 	#checkQueues()
 	for worker in workers:
-		if worker.current_facility == 0:
+		if worker.current_facility is None:
 			worker.current_task = getWork(worker)
-			#print(worker.name)
-			#print(worker.current_facility)
-			#print(worker.current_task)
-			#print()
-	retrieveWork('Bob')
+		elif worker.current_facility == 'Fac1':
+			facility1.readyQ.put((work.priority,work))
+		elif worker.current_facility == 'Fac2':
+			facility2.readyQ.put((work.priority,work))
+		elif worker.current_facility == 'Fac3':
+			facility3.readyQ.put((work.priority,work))
+		elif worker.current_facility == 'Fac4':
+			facility4.readyQ.put((work.priority,work))
+		else: 
+			facility5.readyQ.put((work.priority,work))
+		#print(worker.name)
+		#print(worker.current_facility)
+		#print(worker.current_task)
+		#print()
+	#retrieveWork('Bob')
 	#getNewWork('Bob')
 	#getNewWork('Bob')
 	#stopWork('Bob','1')
