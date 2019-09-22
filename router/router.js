@@ -30,7 +30,8 @@ router.get("/get-facility-details", (ctx) => {
 
 router.get("/post-test", (ctx) => {
   request.post("https://morning-headland-65470.herokuapp.com/get-new-work-order")
-    .send('test')
+    .set('Content-Type', 'application/json')
+    .send({"test": "bet"})
     .catch(err => {
       console.log(err);
     })
