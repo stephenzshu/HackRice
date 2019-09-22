@@ -82,6 +82,6 @@ class Facility:
                 hasWork = True
         #print(self.readyQ.qsize())
 
-        return work
+        return work[1]
     #def get_equipment_list(self):
     #    return self.equipment_list

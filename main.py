@@ -107,13 +107,13 @@ def getWork(worker):
 		#	print(work[1].facility)
 		#if work is None:
 		#	print("FATAL ERROR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
-		if work[1].facility == 'Fac1':
+		if work.facility == 'Fac1':
 			work = facility1.getWork(worker)
-		elif work[1].facility == 'Fac2':
+		elif work.facility == 'Fac2':
 			work = facility2.getWork(worker)
-		elif work[1].facility == 'Fac3':
+		elif work.facility == 'Fac3':
 			work = facility3.getWork(worker)
-		elif work[1].facility == 'Fac4':
+		elif work.facility == 'Fac4':
 			work = facility4.getWork(worker)
 		else: 
 			work = facility5.getWork(worker)
