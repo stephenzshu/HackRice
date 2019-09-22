@@ -48,7 +48,7 @@ router.post("/retrieve-work", async (ctx) => {
         "priority": temp[4],
         "time": temp[5],
         "submissionTime": temp[6],
-        "inProgress": temp[7].s
+        "inProgress": temp[7]
       }
       resolve(retrieved_work_json);
     });
@@ -77,7 +77,7 @@ router.post("/get-new-work-order", async (ctx) => {
         "priority": temp[4],
         "time": temp[5],
         "submissionTime": temp[6],
-        "inProgress": temp[7].s
+        "inProgress": temp[7]
       }
       resolve(retrieved_work_json);
     });
@@ -90,7 +90,7 @@ router.post("/stop-work", async (ctx) => {
   // Call python method that finishes work order for worker
   let arg1 = ctx.request.body['name'];
   let arg2 = ctx.request.body['time'];
-  const pythonProcess = spawn.spawn('python', ["./main.py", "stopWork", arg1, arg2]);
+  const pythonProcess = spawn('python', ["./main.py", "stopWork", arg1, arg2]);
 
   pythonProcess.on('exit', (code) => {
     console.log("EXITED " + code);
