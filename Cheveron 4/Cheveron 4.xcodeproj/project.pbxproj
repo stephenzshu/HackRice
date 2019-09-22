@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DB5DAD482337B17A00F3A813 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5DAD472337B17A00F3A813 /* AppDelegate.swift */; };
+		DB5DAD4A2337B17A00F3A813 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5DAD492337B17A00F3A813 /* SceneDelegate.swift */; };
+		DB5DAD4C2337B17A00F3A813 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5DAD4B2337B17A00F3A813 /* ViewController.swift */; };
+		DB5DAD4F2337B17A00F3A813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5DAD4D2337B17A00F3A813 /* Main.storyboard */; };
+		DB5DAD512337B17C00F3A813 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB5DAD502337B17C00F3A813 /* Assets.xcassets */; };
+		DB5DAD542337B17C00F3A813 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5DAD522337B17C00F3A813 /* LaunchScreen.storyboard */; };
+		DB5DAD5F2337B17C00F3A813 /* Cheveron_4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5DAD5E2337B17C00F3A813 /* Cheveron_4Tests.swift */; };
+		DB5DAD6A2337B17C00F3A813 /* Cheveron_4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5DAD692337B17C00F3A813 /* Cheveron_4UITests.swift */; };
+		DB5DAD782337B26400F3A813 /* download-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB5DAD772337B26400F3A813 /* download-1.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DB5DAD5B2337B17C00F3A813 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB5DAD3C2337B17A00F3A813 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB5DAD432337B17A00F3A813;
+			remoteInfo = "Cheveron 4";
+		};
+		DB5DAD662337B17C00F3A813 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB5DAD3C2337B17A00F3A813 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB5DAD432337B17A00F3A813;
+			remoteInfo = "Cheveron 4";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DB5DAD442337B17A00F3A813 /* Cheveron 4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cheveron 4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB5DAD472337B17A00F3A813 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DB5DAD492337B17A00F3A813 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DB5DAD4B2337B17A00F3A813 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DB5DAD4E2337B17A00F3A813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DB5DAD502337B17C00F3A813 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB5DAD532337B17C00F3A813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DB5DAD552337B17C00F3A813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB5DAD5A2337B17C00F3A813 /* Cheveron 4Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cheveron 4Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB5DAD5E2337B17C00F3A813 /* Cheveron_4Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cheveron_4Tests.swift; sourceTree = "<group>"; };
+		DB5DAD602337B17C00F3A813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB5DAD652337B17C00F3A813 /* Cheveron 4UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cheveron 4UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB5DAD692337B17C00F3A813 /* Cheveron_4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cheveron_4UITests.swift; sourceTree = "<group>"; };
+		DB5DAD6B2337B17C00F3A813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB5DAD772337B26400F3A813 /* download-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "download-1.jpg"; path = "../../download-1.jpg"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DB5DAD412337B17A00F3A813 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB5DAD572337B17C00F3A813 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB5DAD622337B17C00F3A813 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DB5DAD3B2337B17A00F3A813 = {
+			isa = PBXGroup;
+			children = (
+				DB5DAD462337B17A00F3A813 /* Cheveron 4 */,
+				DB5DAD5D2337B17C00F3A813 /* Cheveron 4Tests */,
+				DB5DAD682337B17C00F3A813 /* Cheveron 4UITests */,
+				DB5DAD452337B17A00F3A813 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DB5DAD452337B17A00F3A813 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB5DAD442337B17A00F3A813 /* Cheveron 4.app */,
+				DB5DAD5A2337B17C00F3A813 /* Cheveron 4Tests.xctest */,
+				DB5DAD652337B17C00F3A813 /* Cheveron 4UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB5DAD462337B17A00F3A813 /* Cheveron 4 */ = {
+			isa = PBXGroup;
+			children = (
+				DB5DAD472337B17A00F3A813 /* AppDelegate.swift */,
+				DB5DAD492337B17A00F3A813 /* SceneDelegate.swift */,
+				DB5DAD4B2337B17A00F3A813 /* ViewController.swift */,
+				DB5DAD4D2337B17A00F3A813 /* Main.storyboard */,
+				DB5DAD772337B26400F3A813 /* download-1.jpg */,
+				DB5DAD502337B17C00F3A813 /* Assets.xcassets */,
+				DB5DAD522337B17C00F3A813 /* LaunchScreen.storyboard */,
+				DB5DAD552337B17C00F3A813 /* Info.plist */,
+			);
+			path = "Cheveron 4";
+			sourceTree = "<group>";
+		};
+		DB5DAD5D2337B17C00F3A813 /* Cheveron 4Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DB5DAD5E2337B17C00F3A813 /* Cheveron_4Tests.swift */,
+				DB5DAD602337B17C00F3A813 /* Info.plist */,
+			);
+			path = "Cheveron 4Tests";
+			sourceTree = "<group>";
+		};
+		DB5DAD682337B17C00F3A813 /* Cheveron 4UITests */ = {
+			isa = PBXGroup;
+			children = (
+				DB5DAD692337B17C00F3A813 /* Cheveron_4UITests.swift */,
+				DB5DAD6B2337B17C00F3A813 /* Info.plist */,
+			);
+			path = "Cheveron 4UITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DB5DAD432337B17A00F3A813 /* Cheveron 4 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB5DAD6E2337B17C00F3A813 /* Build configuration list for PBXNativeTarget "Cheveron 4" */;
+			buildPhases = (
+				DB5DAD402337B17A00F3A813 /* Sources */,
+				DB5DAD412337B17A00F3A813 /* Frameworks */,
+				DB5DAD422337B17A00F3A813 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Cheveron 4";
+			productName = "Cheveron 4";
+			productReference = DB5DAD442337B17A00F3A813 /* Cheveron 4.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DB5DAD592337B17C00F3A813 /* Cheveron 4Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB5DAD712337B17C00F3A813 /* Build configuration list for PBXNativeTarget "Cheveron 4Tests" */;
+			buildPhases = (
+				DB5DAD562337B17C00F3A813 /* Sources */,
+				DB5DAD572337B17C00F3A813 /* Frameworks */,
+				DB5DAD582337B17C00F3A813 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB5DAD5C2337B17C00F3A813 /* PBXTargetDependency */,
+			);
+			name = "Cheveron 4Tests";
+			productName = "Cheveron 4Tests";
+			productReference = DB5DAD5A2337B17C00F3A813 /* Cheveron 4Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DB5DAD642337B17C00F3A813 /* Cheveron 4UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB5DAD742337B17C00F3A813 /* Build configuration list for PBXNativeTarget "Cheveron 4UITests" */;
+			buildPhases = (
+				DB5DAD612337B17C00F3A813 /* Sources */,
+				DB5DAD622337B17C00F3A813 /* Frameworks */,
+				DB5DAD632337B17C00F3A813 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB5DAD672337B17C00F3A813 /* PBXTargetDependency */,
+			);
+			name = "Cheveron 4UITests";
+			productName = "Cheveron 4UITests";
+			productReference = DB5DAD652337B17C00F3A813 /* Cheveron 4UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DB5DAD3C2337B17A00F3A813 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "Hack Rice";
+				TargetAttributes = {
+					DB5DAD432337B17A00F3A813 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					DB5DAD592337B17C00F3A813 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = DB5DAD432337B17A00F3A813;
+					};
+					DB5DAD642337B17C00F3A813 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = DB5DAD432337B17A00F3A813;
+					};
+				};
+			};
+			buildConfigurationList = DB5DAD3F2337B17A00F3A813 /* Build configuration list for PBXProject "Cheveron 4" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DB5DAD3B2337B17A00F3A813;
+			productRefGroup = DB5DAD452337B17A00F3A813 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB5DAD432337B17A00F3A813 /* Cheveron 4 */,
+				DB5DAD592337B17C00F3A813 /* Cheveron 4Tests */,
+				DB5DAD642337B17C00F3A813 /* Cheveron 4UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DB5DAD422337B17A00F3A813 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB5DAD542337B17C00F3A813 /* LaunchScreen.storyboard in Resources */,
+				DB5DAD512337B17C00F3A813 /* Assets.xcassets in Resources */,
+				DB5DAD4F2337B17A00F3A813 /* Main.storyboard in Resources */,
+				DB5DAD782337B26400F3A813 /* download-1.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB5DAD582337B17C00F3A813 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB5DAD632337B17C00F3A813 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DB5DAD402337B17A00F3A813 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB5DAD4C2337B17A00F3A813 /* ViewController.swift in Sources */,
+				DB5DAD482337B17A00F3A813 /* AppDelegate.swift in Sources */,
+				DB5DAD4A2337B17A00F3A813 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB5DAD562337B17C00F3A813 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB5DAD5F2337B17C00F3A813 /* Cheveron_4Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB5DAD612337B17C00F3A813 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB5DAD6A2337B17C00F3A813 /* Cheveron_4UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DB5DAD5C2337B17C00F3A813 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB5DAD432337B17A00F3A813 /* Cheveron 4 */;
+			targetProxy = DB5DAD5B2337B17C00F3A813 /* PBXContainerItemProxy */;
+		};
+		DB5DAD672337B17C00F3A813 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB5DAD432337B17A00F3A813 /* Cheveron 4 */;
+			targetProxy = DB5DAD662337B17C00F3A813 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DB5DAD4D2337B17A00F3A813 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB5DAD4E2337B17A00F3A813 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DB5DAD522337B17C00F3A813 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB5DAD532337B17C00F3A813 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DB5DAD6C2337B17C00F3A813 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DB5DAD6D2337B17C00F3A813 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DB5DAD6F2337B17C00F3A813 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Cheveron 4/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Hack-Rice.Cheveron-4";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB5DAD702337B17C00F3A813 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Cheveron 4/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Hack-Rice.Cheveron-4";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DB5DAD722337B17C00F3A813 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Cheveron 4Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Hack-Rice.Cheveron-4Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cheveron 4.app/Cheveron 4";
+			};
+			name = Debug;
+		};
+		DB5DAD732337B17C00F3A813 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Cheveron 4Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Hack-Rice.Cheveron-4Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cheveron 4.app/Cheveron 4";
+			};
+			name = Release;
+		};
+		DB5DAD752337B17C00F3A813 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Cheveron 4UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Hack-Rice.Cheveron-4UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Cheveron 4";
+			};
+			name = Debug;
+		};
+		DB5DAD762337B17C00F3A813 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Cheveron 4UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Hack-Rice.Cheveron-4UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Cheveron 4";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DB5DAD3F2337B17A00F3A813 /* Build configuration list for PBXProject "Cheveron 4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB5DAD6C2337B17C00F3A813 /* Debug */,
+				DB5DAD6D2337B17C00F3A813 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB5DAD6E2337B17C00F3A813 /* Build configuration list for PBXNativeTarget "Cheveron 4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB5DAD6F2337B17C00F3A813 /* Debug */,
+				DB5DAD702337B17C00F3A813 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB5DAD712337B17C00F3A813 /* Build configuration list for PBXNativeTarget "Cheveron 4Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB5DAD722337B17C00F3A813 /* Debug */,
+				DB5DAD732337B17C00F3A813 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB5DAD742337B17C00F3A813 /* Build configuration list for PBXNativeTarget "Cheveron 4UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB5DAD752337B17C00F3A813 /* Debug */,
+				DB5DAD762337B17C00F3A813 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DB5DAD3C2337B17A00F3A813 /* Project object */;
+}
