@@ -143,7 +143,7 @@ def getNewWork(workerName):  #delete old work
 				facility4.removeActive(worker)
 			else: 
 				facility5.removeActive(worker)
-			print(getWorkAtFacility(worker))
+			print(getWorkAtFacility(worker), end='')
 
 def stopWork(workerName, time):
 	for worker in workers:
@@ -159,7 +159,7 @@ def stopWork(workerName, time):
 				work = facility4.removeActive(worker)
 			else: 
 				work = facility5.removeActive(worker)
-			work.inProgress += time
+			work.inProgress += int(time)
 			if worker.current_facility == 'Fac1':
 				facility1.readyQ.put((work.priority,work))
 			elif worker.current_facility == 'Fac2':
@@ -170,6 +170,7 @@ def stopWork(workerName, time):
 				facility4.readyQ.put((work.priority,work))
 			else: 
 				facility5.readyQ.put((work.priority,work))
+	print("Success", end='')
 
 def checkQueues():
 	#while not facility1.readyQ.empty():
@@ -218,6 +219,7 @@ def main():
 	#retrieveWork('Bob')
 	#getNewWork('Bob')
 	#getNewWork('Bob')
+	#print()
 	#stopWork('Bob','1')
 
 	#print("DONE")

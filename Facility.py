@@ -35,7 +35,7 @@ class Facility:
                 done = True
         while temp.qsize() > 0:
             self.activeQ.put(temp.get())
-        return removed
+        return removed[1]
 
     def getWork(self, worker):
         temp = PriorityQueue()
