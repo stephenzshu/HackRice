@@ -60,6 +60,7 @@ router.post("/retrieve-work", async (ctx) => {
 router.post("/get-new-work-order", async (ctx) => {
   // Calls python method to retrieve a new work order
   let arg1 = ctx.request.body['name'];
+  console.log(arg1);
   const pythonProcess = spawn('python3', ["main.py", "getNewWork", arg1]);
 
   pythonProcess.on('exit', (code) => {
