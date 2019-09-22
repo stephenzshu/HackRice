@@ -38,33 +38,33 @@ router.get("/post-test", (ctx) => {
     })
 });*/
 
-router.get("/get-new-work-order", (ctx) => {
+router.post("/get-new-work-order", async (ctx) => {
   // arg1 will be function to call, arg2 ... will be parameters for function call
-  let json;
-  let arg1 = "Bob";
-  let done = false;
-  const pythonProcess = spawn('python', ["main.py", "retrieveWork", arg1]);
+  let arg1 = ctx.request.body['name'];
+  console.log(arg1);
+  const pythonProcess = spawn('python3', ["main.py", "getNewWork", arg1]);
 
-  while (!done);
   pythonProcess.on('exit', (code) => {
-    done = true;
     console.log("EXITED " + code);
   });
 
-  pythonProcess.stdout.on('data', (data) => {
-    console.log(data);
-    json = {
-      "workID": null,
-      "facility": null,
-      "equipment": null,
-      "equipmentID": null,
-      "priority": null,
-      "time": null,
-      "submissionTime": null,
-      "inProgress": null
-    }
+  const json = await new Promise((resolve, reject) => {
+    pythonProcess.stdout.on('data', (data) => {
+      let temp = data.toString('utf8').split(" ");
+      retrieved_work_json = {
+        "workID": temp[0],
+        "facility": temp[1],
+        "equipment": temp[2],
+        "equipmentID": temp[3],
+        "priority": temp[4],
+        "time": temp[5],
+        "submissionTime": temp[6],
+        "inProgress": temp[7].s
+      }
+      resolve(retrieved_work_json);
+    });
   });
- 
+
   ctx.body = json;
 });
 
