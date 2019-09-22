@@ -47,4 +47,4 @@ class WorkOrder:
 		return self.inProgress
 
 	def __str__(self):
-		return self.workID + " " + self.facility + " " + self.equipment + " " + self.equipmentID + " " + self.priority + " " + self.time + " " + self.submissionTime + " " + self.inProgress
+		return str(self.workID) + " " + self.facility + " " + self.equipment + " " + self.equipmentID + " " + str(self.priority) + " " + str(self.time) + " " + str(self.submissionTime) + " " + str(self.inProgress)

@@ -22,6 +22,21 @@ class Facility:
     def get_lon(self):
         return self.lon
 
+    def removeActive(self, worker):
+        done = False
+        removed = None
+        temp = PriorityQueue()
+        while self.activeQ.qsize > 0:
+            work = activeQ.get()
+            if worker.current_task != work:   #might need 'is' operator or update the comparator
+                temp.put(work)
+            else:
+                removed = work
+                done = True
+        while temp.qsize > 0:
+            activeQ.put(temp.get())
+        return removed
+
     def getWork(self, worker):
         temp = PriorityQueue()
         hasWork = False
