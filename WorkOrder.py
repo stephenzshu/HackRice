@@ -9,18 +9,19 @@ class WorkOrder:
 		self.submissionTime = submissionTime
 		self.inProgress = inProgress;
 
+	#flipped for everything because less priority and less time is better
 	def __lt__(self, other):
-		return self.workID < other.workID
+		return ((self.priority,self.time) > (other.priority, other.time))
 	def __gt__(self, other):
-		return self.workID > other.workID
+		return ((self.priority,self.time) < (other.priority, other.time))
 	def __eq__(self, other):
-		return self.workID == other.workID
+		return ((self.priority,self.time) == (other.priority, other.time))
 	def __le__(self, other):
-		return self.workID <= other.workID
+		return ((self.priority,self.time) >= (other.priority, other.time))
 	def __ge__(self, other):
-		return self.workID >= other.workID
+		return ((self.priority,self.time) <= (other.priority, other.time))
 	def __ne__(self, other):
-		return self.workID != other.workID
+		return ((self.priority,self.time) != (other.priority, other.time))
 
 	def getWorkID(self):
 		return self.workID
