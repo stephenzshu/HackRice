@@ -35,11 +35,31 @@ router.get("/meta-test", (ctx) => {
     });
 });
 
-router.get("/get-current-work-order", (ctx) => {
+router.get("/get-new-work-order", (ctx) => {
   // arg1 will be function to call, arg2 ... will be parameters for function call
+  let json;
   const pythonProcess = spawn.spawn('python', ["./main.py", arg1, arg2]);
   pythonProcess.stdout.on('data', (data) => {
-    console.log(data);
+    json = {
+      "wordID": null,
+      "facility": null,
+      "equipment": null,
+      "equipmentID": null,
+      "priority": null,
+      "time": null,
+      "submissionTime": null,
+      "inProgress": null
+    }
+  });
+  ctx.body = json;
+});
+
+router.get("/finish-current-work-order", (ctx) => {
+  // Call python method that finishes work order for worker
+  const pythonProcess = spawn.spawn('python', ["./main.py", arg1, arg2]);
+  pythonProcess.stdout.on('data', (data) => {
+    ctx.status = 200;
+    ctx.body = "Current work order successfully removed";
   });
 });
 
